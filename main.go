@@ -3,6 +3,19 @@ package main
 import "fmt"
 
 func main() {
-	url := "https://blog.boot.dev/path/"
-	fmt.Println(normalizeURL(url))
+	html := `
+<html>
+	<body>
+		<a href="/path/one">
+			<span>Boot.dev</span>
+		</a>
+		<a href="https://other.com/path/one">
+			<span>Boot.dev</span>
+		</a>
+	</body>
+</html>
+`
+	url := "https://blog.boot.dev"
+
+	fmt.Println(getURLsFromHTML(html, url))
 }
